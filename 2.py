@@ -4,12 +4,7 @@ for i in open("input2.txt").readlines():#.......
     t.append(i.strip("\n"))#....................
 for i in range(len(t)):#........................
     t[i] = [int(j) for j in t[i].split("\t")]#..
-#---beginning of part 1---#
-r1,r2 = 0,0
-for i in t:
-    r1 += max(i) - min(i)
-#---line between parts 1 and 2---#
-r = 0
+r1,r2 = sum(max(i) - min(i) for i in t),0
 for k in t:
     for j1 in co(k,2):
         i,j = sorted(j1)[0],sorted(j1)[1]
